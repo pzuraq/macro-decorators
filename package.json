@@ -1,0 +1,29 @@
+{
+  "name": "macro-decorators",
+  "version": "0.1.0",
+  "description": "Decorators for property macros",
+  "main": "dist/index.js",
+  "repository": "https://github.com/pzuraq/macro-decorators",
+  "author": "me@pzuraq.com",
+  "license": "MIT",
+  "private": false,
+  "scripts": {
+    "test": "mocha -r ts-node/register src/**/tests/**/*.ts",
+    "prepublish": "tsc"
+  },
+  "files": [
+    "dist/index.js",
+    "dist/index.d.ts",
+    "dist/macro.js",
+    "dist/macro.d.ts"
+  ],
+  "devDependencies": {
+    "@types/chai": "^4.1.7",
+    "@types/mocha": "^5.2.6",
+    "@types/node": "^11.13.0",
+    "chai": "^4.2.0",
+    "mocha": "^6.0.2",
+    "ts-node": "^8.0.3",
+    "typescript": "^3.4.2"
+  }
+}
