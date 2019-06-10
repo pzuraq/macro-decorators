@@ -4,27 +4,36 @@
 # https://docs.microsoft.com/azure/devops/pipelines/languages/javascript
 
 trigger:
-- master
+  - master
 
 pool:
   vmImage: 'ubuntu-latest'
 
-steps:
-- task: NodeTool@0
-  inputs:
-    versionSpec: '10.x'
-  displayName: 'Install Node.js'
-- script: |
-    curl -o- -L https://yarnpkg.com/install.sh | bash
-  displayName: "Install Yarn"
-- script: |
-    set -e
-    export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
-    node -v
-    yarn -v
-  displayName: "Print versions"
+jobs:
+  - job: Test
+    steps:
+      - task: NodeTool@0
+        inputs:
+          versionSpec: '10.x'
+        displayName: 'Install Node.js'
+      - script: |
+          curl -o- -L https://yarnpkg.com/install.sh | bash
+        displayName: 'Install Yarn'
+      - script: |
+          set -e
+          export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
+          node -v
+          yarn -v
+        displayName: 'Print versions'
 
-- script: |
-    yarn
-    yarn test
-  displayName: 'yarn install and test'
+      - script: |
+          yarn
+          yarn test
+        displayName: 'yarn install and test'
+
+  - job: Deploy
+    condition: and(succeeded(), eq(variables['Build.SourceBranch'], 'refs/heads/master'))
+    steps:
+      - script: |
+          yarn deploy
+        displayName: 'Deploy Docs'
