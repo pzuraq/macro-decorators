@@ -6,36 +6,59 @@
 trigger:
   - master
 
-jobs:
-  - job: Test
-    pool:
-      vmImage: 'ubuntu-latest'
-    steps:
-      - task: NodeTool@0
-        inputs:
-          versionSpec: '10.x'
-        displayName: 'Install Node.js'
-      - script: |
-          curl -o- -L https://yarnpkg.com/install.sh | bash
-        displayName: 'Install Yarn'
-      - script: |
-          set -e
-          export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
-          node -v
-          yarn -v
-        displayName: 'Print versions'
+stages:
+  - stage: Test
+    jobs:
+      - job: Test
+        pool:
+          vmImage: 'ubuntu-latest'
+        steps:
+          - task: NodeTool@0
+            inputs:
+              versionSpec: '10.x'
+            displayName: 'Install Node.js'
+          - task: YarnInstaller@3
+            inputs:
+              versionSpec: '1.x'
+              checkLatest: true
 
-      - script: |
-          yarn
-          yarn lint
-          yarn test
-        displayName: 'yarn install and test'
+          - script: |
+              yarn
+              yarn lint
+              yarn test
+            displayName: 'yarn install and test'
 
-  - job: Deploy
-    pool:
-      vmImage: 'ubuntu-latest'
-    condition: and(succeeded(), eq(variables['Build.SourceBranch'], 'refs/heads/master'))
-    steps:
-      - script: |
-          yarn deploy
-        displayName: 'Deploy Docs'
+  - stage: Deploy
+    dependsOn:
+      - Test
+    condition: and(succeeded('Test'), eq(variables['Build.SourceBranch'], 'refs/heads/master'))
+    jobs:
+      - job: Deploy
+        pool:
+          vmImage: 'ubuntu-latest'
+        steps:
+          - task: NodeTool@0
+            inputs:
+              versionSpec: '10.x'
+            displayName: 'Install Node.js'
+          - task: YarnInstaller@3
+            inputs:
+              versionSpec: '1.x'
+              checkLatest: true
+          - task: InstallSSHKey@0
+            inputs:
+              knownHostsEntry: $(githubKnownHosts)
+              sshPublicKey: $(macroDecoratorsDeployPublic)
+              sshKeySecureFile: 'macro-decorators-deploy'
+
+          - script: |
+              git config --global user.email "opensource@pzuraq.com";
+              git config --global user.name "Chris Garrett";
+              git config remote.origin.url "git@github.com:pzuraq/macro-decorators.git"
+            displayName: 'Configure Git'
+
+          - script: |
+              yarn
+              yarn build:docs
+              yarn deploy
+            displayName: 'Deploy Docs'
