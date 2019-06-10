@@ -10,7 +10,10 @@
   "scripts": {
     "lint": "eslint ./src/*.ts ./src/**/*.ts && tsc",
     "test": "mocha -r ts-node/register src/**/tests/**/*.ts",
-    "prepublish": "tsc"
+    "build": "tsc",
+    "build:docs": "typedoc ./src/index.ts",
+    "deploy": "gh-pages -d docs",
+    "prepublish": "yarn run build"
   },
   "files": [
     "dist/index.js",
