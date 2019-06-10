@@ -28,6 +28,7 @@ jobs:
 
       - script: |
           yarn
+          yarn lint:ts
           yarn test
         displayName: 'yarn install and test'
 

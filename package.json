@@ -8,6 +8,7 @@
   "license": "MIT",
   "private": false,
   "scripts": {
+    "lint:ts": "eslint ./src/**/*.ts",
     "test": "mocha -r ts-node/register src/**/tests/**/*.ts",
     "prepublish": "tsc"
   },
@@ -21,9 +22,11 @@
     "@types/chai": "^4.1.7",
     "@types/mocha": "^5.2.6",
     "@types/node": "^11.13.0",
+    "@typescript-eslint/parser": "^1.10.2",
     "chai": "^4.2.0",
     "eslint": "^5.16.0",
     "eslint-config-prettier": "^4.3.0",
+    "eslint-plugin-node": "^9.1.0",
     "eslint-plugin-prettier": "^3.1.0",
     "gh-pages": "^2.0.1",
     "mocha": "^6.0.2",
