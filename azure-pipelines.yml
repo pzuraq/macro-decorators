@@ -6,11 +6,10 @@
 trigger:
   - master
 
-pool:
-  vmImage: 'ubuntu-latest'
-
 jobs:
   - job: Test
+    pool:
+      vmImage: 'ubuntu-latest'
     steps:
       - task: NodeTool@0
         inputs:
@@ -33,6 +32,8 @@ jobs:
         displayName: 'yarn install and test'
 
   - job: Deploy
+    pool:
+      vmImage: 'ubuntu-latest'
     condition: and(succeeded(), eq(variables['Build.SourceBranch'], 'refs/heads/master'))
     steps:
       - script: |
