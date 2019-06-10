@@ -542,6 +542,9 @@ describe('Macros', () => {
       let foo = new Foo();
 
       expect(foo.fooSorted).to.deep.equal([3, 2, 1]);
+
+      // Does not modify the original
+      expect(foo.foo).to.deep.equal([1, 2, 3]);
     });
 
     it('@sortBy', () => {
