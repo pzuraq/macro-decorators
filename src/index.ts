@@ -118,13 +118,9 @@ export type MacroDescriptor = {
  *
  * @param definition The definition of the macro to apply to the field
  */
-export default function macro(
-  definition: MacroGetter | MacroDescriptor
-): PropertyDecorator {
+export default function macro(definition: MacroGetter | MacroDescriptor): PropertyDecorator {
   let getter: ((obj: any, key: string | symbol) => any) | undefined;
-  let setter:
-    | ((obj: any, key: string | symbol, value: any) => void)
-    | undefined;
+  let setter: ((obj: any, key: string | symbol, value: any) => void) | undefined;
 
   if (typeof definition === 'function') {
     getter = definition;
@@ -253,26 +249,15 @@ export function alias(path: string): PropertyDecorator {
  * @param path The property path to alias
  * @param message The warning to log when the property is accessed
  */
-export function deprecatingAlias(
-  path: string,
-  message: string
-): PropertyDecorator {
+export function deprecatingAlias(path: string, message: string): PropertyDecorator {
   return macro({
     get(obj, key) {
-      console.warn(
-        `You got ${obj}#${String(
-          key
-        )}, but that value has been deprecated: ${message}`
-      );
+      console.warn(`You got ${obj}#${String(key)}, but that value has been deprecated: ${message}`);
       return getPath(obj, path);
     },
 
     set(obj, key, value) {
-      console.warn(
-        `You set ${obj}#${String(
-          key
-        )}, but that value has been deprecated: ${message}`
-      );
+      console.warn(`You set ${obj}#${String(key)}, but that value has been deprecated: ${message}`);
       setPath(obj, path, value);
     },
   });
@@ -335,8 +320,7 @@ export function reads(path: string, defaultValue?: any): PropertyDecorator {
     let value = getPath(obj, path);
 
     if (value === null || value === undefined) {
-      value =
-        typeof defaultValue === 'function' ? defaultValue() : defaultValue;
+      value = typeof defaultValue === 'function' ? defaultValue() : defaultValue;
     }
 
     return value;
@@ -963,11 +947,7 @@ export function filter(
  * @param key The key to filter the objects by
  * @param value A value to compare against when filtering
  */
-export function filterBy(
-  path: string,
-  key: string | symbol,
-  value?: any
-): PropertyDecorator {
+export function filterBy(path: string, key: string | symbol, value?: any): PropertyDecorator {
   if (value !== undefined) {
     return filter(path, (v: any) => v[key] === value);
   } else {
@@ -1173,10 +1153,7 @@ export function min(path: string): PropertyDecorator {
  * @param path The path of the array to sort
  * @param fn The function to sort the array with
  */
-export function sort(
-  path: string,
-  fn: (a: any, b: any) => number
-): PropertyDecorator {
+export function sort(path: string, fn: (a: any, b: any) => number): PropertyDecorator {
   return macro(obj =>
     getPath(obj, path)
       .slice()
@@ -1218,11 +1195,7 @@ export function sort(
  * @param key The key of the value to sort the objects by
  * @param asc Whether the sort should be ascending or descinding
  */
-export function sortBy(
-  path: string,
-  key: string,
-  asc = true
-): PropertyDecorator {
+export function sortBy(path: string, key: string, asc = true): PropertyDecorator {
   return sort(path, (a, b) => {
     if (a[key] < b[key]) {
       return asc ? -1 : 1;
@@ -1257,9 +1230,7 @@ export function sortBy(
  * @param path The path of the array to sum
  */
 export function sum(path: string): PropertyDecorator {
-  return macro(obj =>
-    getPath(obj, path).reduce((s: number, v: number) => s + v, 0)
-  );
+  return macro(obj => getPath(obj, path).reduce((s: number, v: number) => s + v, 0));
 }
 
 /**
