@@ -1027,6 +1027,8 @@ img { max-width: 100%; }
 			<p>Sometimes, writing code for JavaScript getters and setters can get repetitive.
 				Macro decorators allow you to DRY up your code by creating a decorator that can
 			duplicate a getter/setter&#39;s functionality in multiple places!</p>
+			<p>Checkout <a href="https://pzuraq.github.io/macro-decorators/">the docs site</a> to get
+			started, or continue reading for more information.</p>
 			<h2 id="installation">Installation</h2>
 			<p>Using NPM:</p>
 			<pre><code>npm install <span class="hljs-function"><span class="hljs-keyword">macro</span><span class="hljs-title">-</span></span>decorators</code></pre><p>Using Yarn:</p>
@@ -1120,7 +1122,9 @@ captainMarvel.fullName = <span class="hljs-string">'Carol Danvers'</span>;
   <span class="hljs-meta">@formattedPercent</span>(<span class="hljs-string">'percentOfPassedBuilds'</span>) formattedPercentOfPassedBuilds;
 }</code></pre>
 			<p>The <code>macro-decorators</code> library also ships with a number of predefined macros,
-			including the <code>@filter</code> and <code>@reads</code> decorators from the last example.</p>
+				including the <code>@filter</code> and <code>@reads</code> decorators from the last example. Check out
+				the <a href="https://pzuraq.github.io/macro-decorators/">API doc</a> for more information
+			on these macros.</p>
 			<h3 id="macro-paths">Macro Paths</h3>
 			<p>Built in macros that receive a key to a different property as an argument can
 			also receive a <em>path</em> of keys separated by periods:</p>
@@ -1218,7 +1222,7 @@ captainMarvel.fullName = <span class="hljs-string">'Carol Danvers'</span>;
 				<div class="tsd-signature tsd-kind-icon">Macro<wbr>Descriptor<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">object</span></div>
 				<aside class="tsd-sources">
 					<ul>
-						<li>Defined in <a href="https://github.com/pzuraq/macro-decorators/blob/72ab709/src/index.ts#L39">index.ts:39</a></li>
+						<li>Defined in <a href="https://github.com/pzuraq/macro-decorators/blob/28694af/src/index.ts#L39">index.ts:39</a></li>
 					</ul>
 				</aside>
 				<div class="tsd-comment tsd-typography">
@@ -1240,7 +1244,7 @@ captainMarvel.fullName = <span class="hljs-string">'Carol Danvers'</span>;
 				<div class="tsd-signature tsd-kind-icon">Macro<wbr>Getter<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">function</span></div>
 				<aside class="tsd-sources">
 					<ul>
-						<li>Defined in <a href="https://github.com/pzuraq/macro-decorators/blob/72ab709/src/index.ts#L8">index.ts:8</a></li>
+						<li>Defined in <a href="https://github.com/pzuraq/macro-decorators/blob/28694af/src/index.ts#L8">index.ts:8</a></li>
 					</ul>
 				</aside>
 				<div class="tsd-comment tsd-typography">
@@ -1293,7 +1297,7 @@ captainMarvel.fullName = <span class="hljs-string">'Carol Danvers'</span>;
 				<div class="tsd-signature tsd-kind-icon">Macro<wbr>Setter<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">function</span></div>
 				<aside class="tsd-sources">
 					<ul>
-						<li>Defined in <a href="https://github.com/pzuraq/macro-decorators/blob/72ab709/src/index.ts#L23">index.ts:23</a></li>
+						<li>Defined in <a href="https://github.com/pzuraq/macro-decorators/blob/28694af/src/index.ts#L23">index.ts:23</a></li>
 					</ul>
 				</aside>
 				<div class="tsd-comment tsd-typography">
@@ -1360,7 +1364,7 @@ captainMarvel.fullName = <span class="hljs-string">'Carol Danvers'</span>;
 					<li class="tsd-description">
 						<aside class="tsd-sources">
 							<ul>
-								<li>Defined in <a href="https://github.com/pzuraq/macro-decorators/blob/72ab709/src/index.ts#L216">index.ts:216</a></li>
+								<li>Defined in <a href="https://github.com/pzuraq/macro-decorators/blob/28694af/src/index.ts#L216">index.ts:216</a></li>
 							</ul>
 						</aside>
 						<div class="tsd-comment tsd-typography">
@@ -1411,7 +1415,7 @@ ironMan.properName = <span class="hljs-string">'Anthony Stark'</span>;
 					<li class="tsd-description">
 						<aside class="tsd-sources">
 							<ul>
-								<li>Defined in <a href="https://github.com/pzuraq/macro-decorators/blob/72ab709/src/index.ts#L411">index.ts:411</a></li>
+								<li>Defined in <a href="https://github.com/pzuraq/macro-decorators/blob/28694af/src/index.ts#L411">index.ts:411</a></li>
 							</ul>
 						</aside>
 						<div class="tsd-comment tsd-typography">
@@ -1458,7 +1462,7 @@ person.hasPowers = <span class="hljs-literal">true</span>;
 					<li class="tsd-description">
 						<aside class="tsd-sources">
 							<ul>
-								<li>Defined in <a href="https://github.com/pzuraq/macro-decorators/blob/72ab709/src/index.ts#L439">index.ts:439</a></li>
+								<li>Defined in <a href="https://github.com/pzuraq/macro-decorators/blob/28694af/src/index.ts#L439">index.ts:439</a></li>
 							</ul>
 						</aside>
 						<div class="tsd-comment tsd-typography">
@@ -1502,7 +1506,7 @@ person.name = <span class="hljs-string">'Diana Prince'</span>;
 					<li class="tsd-description">
 						<aside class="tsd-sources">
 							<ul>
-								<li>Defined in <a href="https://github.com/pzuraq/macro-decorators/blob/72ab709/src/index.ts#L798">index.ts:798</a></li>
+								<li>Defined in <a href="https://github.com/pzuraq/macro-decorators/blob/28694af/src/index.ts#L798">index.ts:798</a></li>
 							</ul>
 						</aside>
 						<div class="tsd-comment tsd-typography">
@@ -1549,7 +1553,7 @@ ironMan.helmet = <span class="hljs-string">'Iron Helmet'</span>;
 					<li class="tsd-description">
 						<aside class="tsd-sources">
 							<ul>
-								<li>Defined in <a href="https://github.com/pzuraq/macro-decorators/blob/72ab709/src/index.ts#L252">index.ts:252</a></li>
+								<li>Defined in <a href="https://github.com/pzuraq/macro-decorators/blob/28694af/src/index.ts#L252">index.ts:252</a></li>
 							</ul>
 						</aside>
 						<div class="tsd-comment tsd-typography">
@@ -1598,7 +1602,7 @@ ironMan.helmet = <span class="hljs-string">'Iron Helmet'</span>;
 					<li class="tsd-description">
 						<aside class="tsd-sources">
 							<ul>
-								<li>Defined in <a href="https://github.com/pzuraq/macro-decorators/blob/72ab709/src/index.ts#L831">index.ts:831</a></li>
+								<li>Defined in <a href="https://github.com/pzuraq/macro-decorators/blob/28694af/src/index.ts#L831">index.ts:831</a></li>
 							</ul>
 						</aside>
 						<div class="tsd-comment tsd-typography">
@@ -1647,7 +1651,7 @@ hamster.wants; <span class="hljs-comment">// ['banana']</span></code></pre>
 					<li class="tsd-description">
 						<aside class="tsd-sources">
 							<ul>
-								<li>Defined in <a href="https://github.com/pzuraq/macro-decorators/blob/72ab709/src/index.ts#L467">index.ts:467</a></li>
+								<li>Defined in <a href="https://github.com/pzuraq/macro-decorators/blob/28694af/src/index.ts#L467">index.ts:467</a></li>
 							</ul>
 						</aside>
 						<div class="tsd-comment tsd-typography">
@@ -1691,7 +1695,7 @@ list.todos.push(<span class="hljs-string">'Stop Thanos'</span>);
 					<li class="tsd-description">
 						<aside class="tsd-sources">
 							<ul>
-								<li>Defined in <a href="https://github.com/pzuraq/macro-decorators/blob/72ab709/src/index.ts#L496">index.ts:496</a></li>
+								<li>Defined in <a href="https://github.com/pzuraq/macro-decorators/blob/28694af/src/index.ts#L496">index.ts:496</a></li>
 							</ul>
 						</aside>
 						<div class="tsd-comment tsd-typography">
@@ -1741,7 +1745,7 @@ tony.name = <span class="hljs-string">'Tony Stark'</span>;
 					<li class="tsd-description">
 						<aside class="tsd-sources">
 							<ul>
-								<li>Defined in <a href="https://github.com/pzuraq/macro-decorators/blob/72ab709/src/index.ts#L881">index.ts:881</a></li>
+								<li>Defined in <a href="https://github.com/pzuraq/macro-decorators/blob/28694af/src/index.ts#L881">index.ts:881</a></li>
 							</ul>
 						</aside>
 						<div class="tsd-comment tsd-typography">
@@ -1824,7 +1828,7 @@ tony.name = <span class="hljs-string">'Tony Stark'</span>;
 					<li class="tsd-description">
 						<aside class="tsd-sources">
 							<ul>
-								<li>Defined in <a href="https://github.com/pzuraq/macro-decorators/blob/72ab709/src/index.ts#L950">index.ts:950</a></li>
+								<li>Defined in <a href="https://github.com/pzuraq/macro-decorators/blob/28694af/src/index.ts#L950">index.ts:950</a></li>
 							</ul>
 						</aside>
 						<div class="tsd-comment tsd-typography">
@@ -1912,7 +1916,7 @@ tony.name = <span class="hljs-string">'Tony Stark'</span>;
 					<li class="tsd-description">
 						<aside class="tsd-sources">
 							<ul>
-								<li>Defined in <a href="https://github.com/pzuraq/macro-decorators/blob/72ab709/src/index.ts#L525">index.ts:525</a></li>
+								<li>Defined in <a href="https://github.com/pzuraq/macro-decorators/blob/28694af/src/index.ts#L525">index.ts:525</a></li>
 							</ul>
 						</aside>
 						<div class="tsd-comment tsd-typography">
@@ -1962,7 +1966,7 @@ cap.age++;
 					<li class="tsd-description">
 						<aside class="tsd-sources">
 							<ul>
-								<li>Defined in <a href="https://github.com/pzuraq/macro-decorators/blob/72ab709/src/index.ts#L553">index.ts:553</a></li>
+								<li>Defined in <a href="https://github.com/pzuraq/macro-decorators/blob/28694af/src/index.ts#L553">index.ts:553</a></li>
 							</ul>
 						</aside>
 						<div class="tsd-comment tsd-typography">
@@ -2012,7 +2016,7 @@ cap.age++;
 					<li class="tsd-description">
 						<aside class="tsd-sources">
 							<ul>
-								<li>Defined in <a href="https://github.com/pzuraq/macro-decorators/blob/72ab709/src/index.ts#L981">index.ts:981</a></li>
+								<li>Defined in <a href="https://github.com/pzuraq/macro-decorators/blob/28694af/src/index.ts#L981">index.ts:981</a></li>
 							</ul>
 						</aside>
 						<div class="tsd-comment tsd-typography">
@@ -2055,7 +2059,7 @@ cap.age++;
 					<li class="tsd-description">
 						<aside class="tsd-sources">
 							<ul>
-								<li>Defined in <a href="https://github.com/pzuraq/macro-decorators/blob/72ab709/src/index.ts#L716">index.ts:716</a></li>
+								<li>Defined in <a href="https://github.com/pzuraq/macro-decorators/blob/28694af/src/index.ts#L716">index.ts:716</a></li>
 							</ul>
 						</aside>
 						<div class="tsd-comment tsd-typography">
@@ -2105,7 +2109,7 @@ spidey.age = <span class="hljs-number">18</span>;
 					<li class="tsd-description">
 						<aside class="tsd-sources">
 							<ul>
-								<li>Defined in <a href="https://github.com/pzuraq/macro-decorators/blob/72ab709/src/index.ts#L746">index.ts:746</a></li>
+								<li>Defined in <a href="https://github.com/pzuraq/macro-decorators/blob/28694af/src/index.ts#L746">index.ts:746</a></li>
 							</ul>
 						</aside>
 						<div class="tsd-comment tsd-typography">
@@ -2155,7 +2159,7 @@ spidey.age = <span class="hljs-number">18</span>;
 					<li class="tsd-description">
 						<aside class="tsd-sources">
 							<ul>
-								<li>Defined in <a href="https://github.com/pzuraq/macro-decorators/blob/72ab709/src/index.ts#L121">index.ts:121</a></li>
+								<li>Defined in <a href="https://github.com/pzuraq/macro-decorators/blob/28694af/src/index.ts#L121">index.ts:121</a></li>
 							</ul>
 						</aside>
 						<div class="tsd-comment tsd-typography">
@@ -2247,7 +2251,7 @@ captainMarvel.fullName = <span class="hljs-string">'Monica Rambeau'</span>;
 					<li class="tsd-description">
 						<aside class="tsd-sources">
 							<ul>
-								<li>Defined in <a href="https://github.com/pzuraq/macro-decorators/blob/72ab709/src/index.ts#L1028">index.ts:1028</a></li>
+								<li>Defined in <a href="https://github.com/pzuraq/macro-decorators/blob/28694af/src/index.ts#L1028">index.ts:1028</a></li>
 							</ul>
 						</aside>
 						<div class="tsd-comment tsd-typography">
@@ -2327,7 +2331,7 @@ captainMarvel.fullName = <span class="hljs-string">'Monica Rambeau'</span>;
 					<li class="tsd-description">
 						<aside class="tsd-sources">
 							<ul>
-								<li>Defined in <a href="https://github.com/pzuraq/macro-decorators/blob/72ab709/src/index.ts#L1066">index.ts:1066</a></li>
+								<li>Defined in <a href="https://github.com/pzuraq/macro-decorators/blob/28694af/src/index.ts#L1066">index.ts:1066</a></li>
 							</ul>
 						</aside>
 						<div class="tsd-comment tsd-typography">
@@ -2383,7 +2387,7 @@ captainMarvel.fullName = <span class="hljs-string">'Monica Rambeau'</span>;
 					<li class="tsd-description">
 						<aside class="tsd-sources">
 							<ul>
-								<li>Defined in <a href="https://github.com/pzuraq/macro-decorators/blob/72ab709/src/index.ts#L637">index.ts:637</a></li>
+								<li>Defined in <a href="https://github.com/pzuraq/macro-decorators/blob/28694af/src/index.ts#L637">index.ts:637</a></li>
 							</ul>
 						</aside>
 						<div class="tsd-comment tsd-typography">
@@ -2430,7 +2434,7 @@ person.age = <span class="hljs-string">'twenty-nine'</span>;
 					<li class="tsd-description">
 						<aside class="tsd-sources">
 							<ul>
-								<li>Defined in <a href="https://github.com/pzuraq/macro-decorators/blob/72ab709/src/index.ts#L1092">index.ts:1092</a></li>
+								<li>Defined in <a href="https://github.com/pzuraq/macro-decorators/blob/28694af/src/index.ts#L1092">index.ts:1092</a></li>
 							</ul>
 						</aside>
 						<div class="tsd-comment tsd-typography">
@@ -2472,7 +2476,7 @@ person.age = <span class="hljs-string">'twenty-nine'</span>;
 					<li class="tsd-description">
 						<aside class="tsd-sources">
 							<ul>
-								<li>Defined in <a href="https://github.com/pzuraq/macro-decorators/blob/72ab709/src/index.ts#L1118">index.ts:1118</a></li>
+								<li>Defined in <a href="https://github.com/pzuraq/macro-decorators/blob/28694af/src/index.ts#L1118">index.ts:1118</a></li>
 							</ul>
 						</aside>
 						<div class="tsd-comment tsd-typography">
@@ -2514,7 +2518,7 @@ person.age = <span class="hljs-string">'twenty-nine'</span>;
 					<li class="tsd-description">
 						<aside class="tsd-sources">
 							<ul>
-								<li>Defined in <a href="https://github.com/pzuraq/macro-decorators/blob/72ab709/src/index.ts#L580">index.ts:580</a></li>
+								<li>Defined in <a href="https://github.com/pzuraq/macro-decorators/blob/28694af/src/index.ts#L580">index.ts:580</a></li>
 							</ul>
 						</aside>
 						<div class="tsd-comment tsd-typography">
@@ -2557,7 +2561,7 @@ batmobile.speed = <span class="hljs-number">100</span>;
 					<li class="tsd-description">
 						<aside class="tsd-sources">
 							<ul>
-								<li>Defined in <a href="https://github.com/pzuraq/macro-decorators/blob/72ab709/src/index.ts#L608">index.ts:608</a></li>
+								<li>Defined in <a href="https://github.com/pzuraq/macro-decorators/blob/28694af/src/index.ts#L608">index.ts:608</a></li>
 							</ul>
 						</aside>
 						<div class="tsd-comment tsd-typography">
@@ -2601,7 +2605,7 @@ hulk.friends.push(<span class="hljs-string">'Thor'</span>);
 					<li class="tsd-description">
 						<aside class="tsd-sources">
 							<ul>
-								<li>Defined in <a href="https://github.com/pzuraq/macro-decorators/blob/72ab709/src/index.ts#L650">index.ts:650</a></li>
+								<li>Defined in <a href="https://github.com/pzuraq/macro-decorators/blob/28694af/src/index.ts#L650">index.ts:650</a></li>
 							</ul>
 						</aside>
 						<div class="tsd-comment tsd-typography">
@@ -2633,7 +2637,7 @@ hulk.friends.push(<span class="hljs-string">'Thor'</span>);
 					<li class="tsd-description">
 						<aside class="tsd-sources">
 							<ul>
-								<li>Defined in <a href="https://github.com/pzuraq/macro-decorators/blob/72ab709/src/index.ts#L686">index.ts:686</a></li>
+								<li>Defined in <a href="https://github.com/pzuraq/macro-decorators/blob/28694af/src/index.ts#L686">index.ts:686</a></li>
 							</ul>
 						</aside>
 						<div class="tsd-comment tsd-typography">
@@ -2678,7 +2682,7 @@ person.savesLives = <span class="hljs-literal">true</span>;
 					<li class="tsd-description">
 						<aside class="tsd-sources">
 							<ul>
-								<li>Defined in <a href="https://github.com/pzuraq/macro-decorators/blob/72ab709/src/index.ts#L356">index.ts:356</a></li>
+								<li>Defined in <a href="https://github.com/pzuraq/macro-decorators/blob/28694af/src/index.ts#L356">index.ts:356</a></li>
 							</ul>
 						</aside>
 						<div class="tsd-comment tsd-typography">
@@ -2724,7 +2728,7 @@ wolverine.universe = <span class="hljs-string">'X-men'</span>;
 					<li class="tsd-description">
 						<aside class="tsd-sources">
 							<ul>
-								<li>Defined in <a href="https://github.com/pzuraq/macro-decorators/blob/72ab709/src/index.ts#L318">index.ts:318</a></li>
+								<li>Defined in <a href="https://github.com/pzuraq/macro-decorators/blob/28694af/src/index.ts#L318">index.ts:318</a></li>
 							</ul>
 						</aside>
 						<div class="tsd-comment tsd-typography">
@@ -2793,7 +2797,7 @@ batman.ownedBy = <span class="hljs-string">'DC'</span>;
 					<li class="tsd-description">
 						<aside class="tsd-sources">
 							<ul>
-								<li>Defined in <a href="https://github.com/pzuraq/macro-decorators/blob/72ab709/src/index.ts#L1156">index.ts:1156</a></li>
+								<li>Defined in <a href="https://github.com/pzuraq/macro-decorators/blob/28694af/src/index.ts#L1156">index.ts:1156</a></li>
 							</ul>
 						</aside>
 						<div class="tsd-comment tsd-typography">
@@ -2873,7 +2877,7 @@ batman.ownedBy = <span class="hljs-string">'DC'</span>;
 					<li class="tsd-description">
 						<aside class="tsd-sources">
 							<ul>
-								<li>Defined in <a href="https://github.com/pzuraq/macro-decorators/blob/72ab709/src/index.ts#L1198">index.ts:1198</a></li>
+								<li>Defined in <a href="https://github.com/pzuraq/macro-decorators/blob/28694af/src/index.ts#L1198">index.ts:1198</a></li>
 							</ul>
 						</aside>
 						<div class="tsd-comment tsd-typography">
@@ -2937,7 +2941,7 @@ batman.ownedBy = <span class="hljs-string">'DC'</span>;
 					<li class="tsd-description">
 						<aside class="tsd-sources">
 							<ul>
-								<li>Defined in <a href="https://github.com/pzuraq/macro-decorators/blob/72ab709/src/index.ts#L1232">index.ts:1232</a></li>
+								<li>Defined in <a href="https://github.com/pzuraq/macro-decorators/blob/28694af/src/index.ts#L1232">index.ts:1232</a></li>
 							</ul>
 						</aside>
 						<div class="tsd-comment tsd-typography">
@@ -2979,7 +2983,7 @@ batman.ownedBy = <span class="hljs-string">'DC'</span>;
 					<li class="tsd-description">
 						<aside class="tsd-sources">
 							<ul>
-								<li>Defined in <a href="https://github.com/pzuraq/macro-decorators/blob/72ab709/src/index.ts#L1259">index.ts:1259</a></li>
+								<li>Defined in <a href="https://github.com/pzuraq/macro-decorators/blob/28694af/src/index.ts#L1259">index.ts:1259</a></li>
 							</ul>
 						</aside>
 						<div class="tsd-comment tsd-typography">
@@ -3022,7 +3026,7 @@ batman.ownedBy = <span class="hljs-string">'DC'</span>;
 					<li class="tsd-description">
 						<aside class="tsd-sources">
 							<ul>
-								<li>Defined in <a href="https://github.com/pzuraq/macro-decorators/blob/72ab709/src/index.ts#L1294">index.ts:1294</a></li>
+								<li>Defined in <a href="https://github.com/pzuraq/macro-decorators/blob/28694af/src/index.ts#L1294">index.ts:1294</a></li>
 							</ul>
 						</aside>
 						<div class="tsd-comment tsd-typography">
@@ -3064,7 +3068,7 @@ batman.ownedBy = <span class="hljs-string">'DC'</span>;
 					<li class="tsd-description">
 						<aside class="tsd-sources">
 							<ul>
-								<li>Defined in <a href="https://github.com/pzuraq/macro-decorators/blob/72ab709/src/index.ts#L1323">index.ts:1323</a></li>
+								<li>Defined in <a href="https://github.com/pzuraq/macro-decorators/blob/28694af/src/index.ts#L1323">index.ts:1323</a></li>
 							</ul>
 						</aside>
 						<div class="tsd-comment tsd-typography">
