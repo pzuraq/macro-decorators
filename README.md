@@ -1,12 +1,13 @@
 # Macro Decorators
 
 [![Build Status](https://pzuraq.visualstudio.com/macro-decorators/_apis/build/status/pzuraq.macro-decorators?branchName=master)](https://pzuraq.visualstudio.com/macro-decorators/_build/latest?definitionId=1&branchName=master)
+[![Open on Github](https://img.shields.io/badge/-Open%20on%20GitHub-black.svg?logo=github)](https://github.com/pzuraq/macro-decorators)
 
 Sometimes, writing code for JavaScript getters and setters can get repetitive.
 Macro decorators allow you to DRY up your code by creating a decorator that can
 duplicate a getter/setter's functionality in multiple places!
 
-Checkout [the docs site](https://pzuraq.github.io/macro-decorators/) to get
+Checkout [the docs](https://pzuraq.github.io/macro-decorators/) to get
 started, or continue reading for more information.
 
 ## Installation
