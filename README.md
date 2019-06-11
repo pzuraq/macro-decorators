@@ -6,6 +6,9 @@ Sometimes, writing code for JavaScript getters and setters can get repetitive.
 Macro decorators allow you to DRY up your code by creating a decorator that can
 duplicate a getter/setter's functionality in multiple places!
 
+Checkout [the docs site](https://pzuraq.github.io/macro-decorators/) to get
+started, or continue reading for more information.
+
 ## Installation
 
 Using NPM:
@@ -119,7 +122,9 @@ class TestResultComponent {
 ```
 
 The `macro-decorators` library also ships with a number of predefined macros,
-including the `@filter` and `@reads` decorators from the last example.
+including the `@filter` and `@reads` decorators from the last example. Check out
+the [API doc](https://pzuraq.github.io/macro-decorators/) for more information
+on these macros.
 
 ### Macro Paths
 
