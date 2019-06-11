@@ -14,13 +14,13 @@ started, or continue reading for more information.
 
 Using NPM:
 
-```
+```sh
 npm install macro-decorators
 ```
 
 Using Yarn:
 
-```
+```sh
 yarn add macro-decorators
 ```
 
