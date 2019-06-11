@@ -17,9 +17,7 @@
   },
   "files": [
     "dist/index.js",
-    "dist/index.d.ts",
-    "dist/macro.js",
-    "dist/macro.d.ts"
+    "dist/index.d.ts"
   ],
   "devDependencies": {
     "@types/chai": "^4.1.7",
