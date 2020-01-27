@@ -157,7 +157,7 @@ function getPath(obj: any, path: string) {
       break;
     }
 
-    current = current[segment];
+    current = typeof current.get === 'function' ? current.get(segment) : current[segment];
   }
 
   return current;
@@ -173,7 +173,11 @@ function setPath(obj: any, path: string, value: any) {
 
   let resolvedObj = objPath ? getPath(obj, objPath) : obj;
 
-  resolvedObj[key] = value;
+  if (typeof resolvedObj.set === 'function') {
+    resolvedObj.set(key, value);
+  } else {
+    resolvedObj[key] = value;
+  }
 }
 
 // **** Aliasing ****

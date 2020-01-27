@@ -61,6 +61,66 @@ describe('Macros', () => {
       expect(foo.fooAlias).to.equal('qux');
     });
 
+    it('@alias works with Map', () => {
+      class Foo {
+        foo = new Map([['bar', 'baz']]);
+
+        @alias('foo.bar') barAlias!: string;
+      }
+
+      let foo = new Foo();
+
+      expect(foo.foo.get('bar')).to.equal('baz');
+      expect(foo.barAlias).to.equal('baz');
+
+      foo.barAlias = 'qux';
+
+      expect(foo.foo.get('bar')).to.equal('qux');
+      expect(foo.barAlias).to.equal('qux');
+
+      foo.foo.set('bar', 'quux');
+
+      expect(foo.foo.get('bar')).to.equal('quux');
+      expect(foo.barAlias).to.equal('quux');
+    });
+
+    it('@alias works with arbitrary classes that implement get and set', () => {
+      class SomeClass {
+        inner = {
+          bar: 'baz'
+        };
+
+        get(key: 'bar') {
+          return this.inner[key];
+        }
+
+        set(key: 'bar', value: string) {
+          this.inner[key] = value;
+        }
+      }
+
+      class Foo {
+        foo = new SomeClass();
+
+        @alias('foo.bar') barAlias!: string;
+      }
+
+      let foo = new Foo();
+
+      expect(foo.foo.get('bar')).to.equal('baz');
+      expect(foo.barAlias).to.equal('baz');
+
+      foo.barAlias = 'qux';
+
+      expect(foo.foo.get('bar')).to.equal('qux');
+      expect(foo.barAlias).to.equal('qux');
+
+      foo.foo.set('bar', 'quux');
+
+      expect(foo.foo.get('bar')).to.equal('quux');
+      expect(foo.barAlias).to.equal('quux');
+    });
+
     it('@deprecatingAlias', () => {
       let callCount = 0;
 
