@@ -163,8 +163,23 @@ function getPath(obj: any, path: string) {
   return current;
 }
 
+function expandProperties(pattern: string): string[] {
+  const start = pattern.indexOf('{');
+  if (start < 0) {
+    return [pattern];
+  }
+  const prefix = pattern.substring(0, start);
+  const end = pattern.indexOf('}');
+  return pattern
+    .substring(start + 1, end)
+    .split(',')
+    .map(p => prefix + p);
+}
+
 function getPaths(obj: any, paths: string[]) {
-  return paths.map(p => getPath(obj, p));
+  return paths
+    .reduce((acc: string[], p: string): string[] => acc.concat(expandProperties(p)), []) // Can use flatMap instead of reduce + concat in future
+    .map(p => getPath(obj, p));
 }
 
 function setPath(obj: any, path: string, value: any) {
