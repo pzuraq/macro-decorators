@@ -1,6 +1,6 @@
 {
   "name": "macro-decorators",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "Decorators for property macros",
   "main": "dist/index.js",
   "repository": "https://github.com/pzuraq/macro-decorators",
