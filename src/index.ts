@@ -164,7 +164,7 @@ function getPath(obj: any, path: string) {
 }
 
 function getPaths(obj: any, paths: string[]) {
-  return paths.map(p => obj[p]);
+  return paths.map(p => getPath(obj, p));
 }
 
 function setPath(obj: any, path: string, value: any) {

@@ -436,6 +436,25 @@ describe('Macros', () => {
       expect(foo.fooOrBarOrBaz).to.equal(true);
     });
 
+    it('@or - nested properties', () => {
+      class Foo {
+        foo = false;
+        bar = false;
+        baz = true;
+      }
+      class Qux {
+        qux = new Foo();
+
+        @or('qux.foo', 'qux.bar') fooOrBar!: boolean;
+        @or('qux.foo', 'qux.bar', 'qux.baz') fooOrBarOrBaz!: boolean;
+      }
+
+      let qux = new Qux();
+
+      expect(qux.fooOrBar).to.equal(false);
+      expect(qux.fooOrBarOrBaz).to.equal(true);
+    });
+
     it('@lt', () => {
       class Foo {
         foo = 0;
