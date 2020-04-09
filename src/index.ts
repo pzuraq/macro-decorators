@@ -1057,7 +1057,7 @@ export function map(
  *     },
  *   ];
  *
- *   @map('people', 'name') names;
+ *   @mapBy('people', 'name') names;
  * }
  *
  * let earth = new Earth();
