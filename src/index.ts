@@ -1188,7 +1188,7 @@ export function sort(path: string, fn: (a: any, b: any) => number): PropertyDeco
  *     },
  *   ];
  *
- *   @sort('people', 'name') sortedPeople;
+ *   @sortBy('people', 'name') sortedPeople;
  * }
  *
  * let earth = new Earth();
