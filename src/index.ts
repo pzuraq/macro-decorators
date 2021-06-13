@@ -914,7 +914,7 @@ export function filter(
  *     },
  *   ];
  *
- *   @filter('people', 'isHero') heroes;
+ *   @filterBy('people', 'isHero') heroes;
  * }
  *
  * let earth = new Earth();
@@ -940,7 +940,7 @@ export function filter(
  *     },
  *   ];
  *
- *   @filter('people', 'isHero', false) villains;
+ *   @filterBy('people', 'isHero', false) villains;
  * }
  *
  * let earth = new Earth();
