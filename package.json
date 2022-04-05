@@ -4,7 +4,7 @@
   "description": "Decorators for property macros",
   "main": "dist/index.js",
   "repository": "https://github.com/pzuraq/macro-decorators",
-  "author": "me@pzuraq.com",
+  "author": "pzuraq",
   "license": "MIT",
   "private": false,
   "scripts": {
