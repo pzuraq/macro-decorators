@@ -503,6 +503,36 @@ export function equal(path: string, value: any): PropertyDecorator {
 
 /**
  * ```typescript
+ * import { ternary } from 'macro-decorators';
+ * ```
+ *
+ * A macro that gets the provided path and if it is true returns second
+ * param or if it is false return third param.
+ *
+ * ```typescript
+ * class Person {
+ *   isAdult = true;
+ *
+ *   @ternary('isAdult', 'Is 18+', 'Below 18') ageDescription;
+ * }
+ *
+ * let tony = new Person();
+ * console.log(tony.ageDiscription); // Is 18+
+ *
+ * tony.isAdult = false;
+ * console.log(tony.ageDiscription); // Below 18
+ * ```
+ *
+ * @param path The path of the value to check
+ * @param true_value The value to return if true
+ * @param false_value The value to return if false
+ */
+export function ternary(path: string, true_value: any, false_value: any): PropertyDecorator {
+  return macro(obj => (getPath(obj, path) ? true_value : false_value));
+}
+
+/**
+ * ```typescript
  * import { gt } from 'macro-decorators';
  * ```
  *

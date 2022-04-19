@@ -10,6 +10,7 @@ import {
   bool,
   empty,
   equal,
+  ternary,
   gt,
   gte,
   not,
@@ -87,7 +88,7 @@ describe('Macros', () => {
     it('@alias works with arbitrary classes that implement get and set', () => {
       class SomeClass {
         inner = {
-          bar: 'baz'
+          bar: 'baz',
         };
 
         get(key: 'bar') {
@@ -307,6 +308,21 @@ describe('Macros', () => {
 
       expect(foo.fooIs123).to.equal(true);
       expect(foo.fooIsBar).to.equal(false);
+    });
+
+    it('@ternary', () => {
+      class Foo {
+        foo = true;
+        bar = false;
+
+        @ternary('foo', 123, 234) fooTernary!: Number;
+        @ternary('bar', 'bar', 'aoeu') barTernary!: String;
+      }
+
+      let foo = new Foo();
+
+      expect(foo.fooTernary).to.equal(123);
+      expect(foo.barTernary).to.equal('aoeu');
     });
 
     it('@gt', () => {
