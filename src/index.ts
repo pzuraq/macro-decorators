@@ -1242,7 +1242,7 @@ export function sum(path: string): PropertyDecorator {
  * import { union } from 'macro-decorators';
  * ```
  *
- * A macro that returns the intersection of one or more arrays that are passed
+ * A macro that returns the union of one or more arrays that are passed
  * to it:
  *
  * ```typescript
