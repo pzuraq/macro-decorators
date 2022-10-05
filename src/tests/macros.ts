@@ -87,7 +87,7 @@ describe('Macros', () => {
     it('@alias works with arbitrary classes that implement get and set', () => {
       class SomeClass {
         inner = {
-          bar: 'baz'
+          bar: 'baz',
         };
 
         get(key: 'bar') {
@@ -504,8 +504,9 @@ describe('Macros', () => {
         foo = [1, 2, 3];
         bar = [2];
         baz = [3];
+        empty = null;
 
-        @diff('foo', 'bar', 'baz') fooBarBaz!: number[];
+        @diff('foo', 'bar', 'baz', 'empty') fooBarBaz!: number[];
       }
 
       let foo = new Foo();
@@ -516,25 +517,31 @@ describe('Macros', () => {
     it('@filter', () => {
       class Foo {
         foo = [1, 2, 3];
+        empty = null;
 
         @filter('foo', i => i === 1) fooFiltered!: number[];
+        @filter('empty', i => i === 1) emptyFiltered!: number[];
       }
 
       let foo = new Foo();
 
       expect(foo.fooFiltered).to.deep.equal([1]);
+      expect(foo.emptyFiltered).to.deep.equal([]);
     });
 
     it('@filterBy', () => {
       class Foo {
         foo = [{ num: 1 }, { num: 0 }, { num: 0 }];
+        empty = null;
 
         @filterBy('foo', 'num') fooFiltered!: number[];
+        @filterBy('empty', 'num') emptyFiltered!: number[];
       }
 
       let foo = new Foo();
 
       expect(foo.fooFiltered).to.deep.equal([{ num: 1 }]);
+      expect(foo.emptyFiltered).to.deep.equal([]);
     });
 
     it('@filterBy value', () => {
@@ -554,73 +561,91 @@ describe('Macros', () => {
         foo = [1, 2];
         bar = [1, 3];
         baz = [1, 4];
+        empty = null;
 
         @intersect('foo', 'bar', 'baz') fooBarBaz!: number[];
+        @intersect('foo', 'empty', 'baz') fooEmptyBaz!: number[];
       }
 
       let foo = new Foo();
 
       expect(foo.fooBarBaz).to.deep.equal([1]);
+      expect(foo.fooEmptyBaz).to.deep.equal([]);
     });
 
     it('@map', () => {
       class Foo {
         foo = [1, 2, 3];
+        empty = null;
 
         @map('foo', i => i + 1) fooMapped!: number[];
+        @map('empty', i => i + 1) emptyMapped!: number[];
       }
 
       let foo = new Foo();
 
       expect(foo.fooMapped).to.deep.equal([2, 3, 4]);
+      expect(foo.emptyMapped).to.deep.equal([]);
     });
 
     it('@mapBy', () => {
       class Foo {
         foo = [{ num: 1 }, { num: 2 }, { num: 3 }];
+        empty = null;
 
         @mapBy('foo', 'num') fooMapped!: number[];
+        @mapBy('empty', 'num') emptyMapped!: number[];
       }
 
       let foo = new Foo();
 
       expect(foo.fooMapped).to.deep.equal([1, 2, 3]);
+      expect(foo.emptyMapped).to.deep.equal([]);
     });
 
     it('@max', () => {
       class Foo {
         foo = [1, 2, 3];
+        empty = null;
 
         @max('foo') fooMax!: number[];
+        @max('empty') emptyMax!: number[];
       }
 
       let foo = new Foo();
 
       expect(foo.fooMax).to.equal(3);
+      expect(foo.emptyMax).to.equal(Math.max());
     });
 
     it('@min', () => {
       class Foo {
         foo = [1, 2, 3];
+        empty = null;
 
         @min('foo') fooMin!: number[];
+        @min('empty') emptyMin!: number[];
       }
 
       let foo = new Foo();
 
       expect(foo.fooMin).to.equal(1);
+      expect(foo.emptyMin).to.equal(Math.min());
     });
 
     it('@sort', () => {
       class Foo {
         foo = [1, 2, 3];
+        empty = null;
 
         @sort('foo', (a, b) => (a < b ? 1 : -1)) fooSorted!: number[];
+        @sort('empty', (a, b) => (a < b ? 1 : -1)) emptySorted!: number[];
       }
 
       let foo = new Foo();
 
       expect(foo.fooSorted).to.deep.equal([3, 2, 1]);
+      expect(foo.emptySorted).to.deep.equal([]);
 
       // Does not modify the original
       expect(foo.foo).to.deep.equal([1, 2, 3]);
@@ -629,25 +654,31 @@ describe('Macros', () => {
     it('@sortBy', () => {
       class Foo {
         foo = [{ num: 3 }, { num: 1 }, { num: 2 }];
+        empty = null;
 
         @sortBy('foo', 'num') fooSorted!: number[];
+        @sortBy('empty', 'num') emptySorted!: number[];
       }
 
       let foo = new Foo();
 
       expect(foo.fooSorted).to.deep.equal([{ num: 1 }, { num: 2 }, { num: 3 }]);
+      expect(foo.emptySorted).to.deep.equal([]);
     });
 
     it('@sum', () => {
       class Foo {
         foo = [1, 2, 3];
+        empty = null;
 
         @sum('foo') fooSum!: number[];
+        @sum('empty') emptySum!: number[];
       }
 
       let foo = new Foo();
 
       expect(foo.fooSum).to.equal(6);
+      expect(foo.emptySum).to.equal(0);
     });
 
     it('@union', () => {
@@ -655,8 +686,9 @@ describe('Macros', () => {
         foo = [1, 2];
         bar = [1, 3];
         baz = [2, 4];
+        empty = null;
 
-        @union('foo', 'bar', 'baz') fooBarBaz!: number[];
+        @union('foo', 'bar', 'baz', 'empty') fooBarBaz!: number[];
       }
 
       let foo = new Foo();
@@ -667,25 +699,31 @@ describe('Macros', () => {
     it('@unique', () => {
       class Foo {
         foo = [1, 2, 2, 3];
+        empty = null;
 
         @unique('foo') fooBarBaz!: number[];
+        @unique('empty') uniqueEmpty!: number[];
       }
 
       let foo = new Foo();
 
       expect(foo.fooBarBaz).to.deep.equal([1, 2, 3]);
+      expect(foo.uniqueEmpty).to.deep.equal([]);
     });
 
     it('@uniqueBy', () => {
       class Foo {
         foo = [{ num: 1 }, { num: 2 }, { num: 2 }, { num: 3 }];
+        empty = null;
 
         @uniqueBy('foo', 'num') fooBarBaz!: number[];
+        @uniqueBy('empty', 'num') uniqueEmpty!: number[];
       }
 
       let foo = new Foo();
 
       expect(foo.fooBarBaz).to.deep.equal([{ num: 1 }, { num: 2 }, { num: 3 }]);
+      expect(foo.uniqueEmpty).to.deep.equal([]);
     });
   });
 });

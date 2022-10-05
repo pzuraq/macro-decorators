@@ -760,6 +760,14 @@ function setFrom(arr: any[]) {
   return set;
 }
 
+function getArray(obj: any, path: string): any[] {
+  return getPath(obj, path) || [];
+}
+
+function getArrays(obj: any, paths: string[]): any[][] {
+  return paths.map(p => getArray(obj, p));
+}
+
 function getValues(set: Set<any>) {
   if (set.values) {
     return Array.from(set);
@@ -834,9 +842,13 @@ export function collect(...paths: string[]): PropertyDecorator {
  */
 export function diff(...paths: string[]): PropertyDecorator {
   return macro(obj => {
-    let arrays = getPaths(obj, paths);
+    if (paths.length === 0) {
+      return [];
+    }
 
-    let intersect = arrays.shift();
+    let arrays = getArrays(obj, paths);
+
+    let intersect = arrays.shift() as any[];
 
     for (let arr of arrays) {
       let values = setFrom(arr);
@@ -886,7 +898,7 @@ export function filter(
   path: string,
   fn: (value: any, index: number, arr: any[]) => boolean
 ): PropertyDecorator {
-  return macro(obj => getPath(obj, path).filter(fn));
+  return macro(obj => getArray(obj, path).filter(fn));
 }
 
 /**
@@ -984,9 +996,13 @@ export function filterBy(path: string, key: string | symbol, value?: any): Prope
  */
 export function intersect(...paths: string[]): PropertyDecorator {
   return macro(obj => {
-    let arrays = getPaths(obj, paths);
+    if (paths.length === 0) {
+      return [];
+    }
 
-    let intersect = arrays.shift();
+    let arrays = getArrays(obj, paths);
+
+    let intersect = arrays.shift() as any[];
 
     for (let arr of arrays) {
       let values = setFrom(arr);
@@ -1033,7 +1049,7 @@ export function map(
   path: string,
   fn: (value: any, i: number, arr: any[]) => any
 ): PropertyDecorator {
-  return macro(obj => getPath(obj, path).map(fn));
+  return macro(obj => getArray(obj, path).map(fn));
 }
 
 /**
@@ -1094,7 +1110,7 @@ export function mapBy(path: string, key: string | symbol): PropertyDecorator {
  * @param path The path to the array to find the max value of
  */
 export function max(path: string): PropertyDecorator {
-  return macro(obj => Math.max(...getPath(obj, path)));
+  return macro(obj => Math.max(...getArray(obj, path)));
 }
 
 /**
@@ -1120,7 +1136,7 @@ export function max(path: string): PropertyDecorator {
  * @param path The path to the array to find the min value of
  */
 export function min(path: string): PropertyDecorator {
-  return macro(obj => Math.min(...getPath(obj, path)));
+  return macro(obj => Math.min(...getArray(obj, path)));
 }
 
 /**
@@ -1159,7 +1175,7 @@ export function min(path: string): PropertyDecorator {
  */
 export function sort(path: string, fn: (a: any, b: any) => number): PropertyDecorator {
   return macro(obj =>
-    getPath(obj, path)
+    getArray(obj, path)
       .slice()
       .sort(fn)
   );
@@ -1234,7 +1250,7 @@ export function sortBy(path: string, key: string, asc = true): PropertyDecorator
  * @param path The path of the array to sum
  */
 export function sum(path: string): PropertyDecorator {
-  return macro(obj => getPath(obj, path).reduce((s: number, v: number) => s + v, 0));
+  return macro(obj => getArray(obj, path).reduce((s: number, v: number) => s + v, 0));
 }
 
 /**
@@ -1262,7 +1278,7 @@ export function sum(path: string): PropertyDecorator {
  */
 export function union(...paths: string[]): PropertyDecorator {
   return macro(obj => {
-    let arrays = getPaths(obj, paths);
+    let arrays = getArrays(obj, paths);
     let union = new Set();
 
     for (let arr of arrays) {
@@ -1326,7 +1342,7 @@ export function unique(path: string): PropertyDecorator {
  */
 export function uniqueBy(path: string, key: string): PropertyDecorator {
   return macro(obj => {
-    let arr = getPath(obj, path);
+    let arr = getArray(obj, path);
     let union = new Set();
     let values: any[] = [];
 
